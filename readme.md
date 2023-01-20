@@ -2,7 +2,6 @@
 
 - Lightweight
 - Interpreted programming language
-- Good for the applications which are network-centric
 - Complementary to Java
 - Complementary to HTML
 - Open source
@@ -34,21 +33,35 @@ JavaScript was developed by Brendan Eich in 1995. The first name of JavaScript w
 
 ECMAScript is the JavaScript standard intended to ensure the interoperability of web pages across different browsers. Inshort it is a language specification.
 
-What is JSON ?
-JSON (JavaScript Object Notation) is a lightweight format that is used for data interchanging. It is based on a subset of JavaScript language in the way objects are built in JavaScript.
-What are the syntax rules of JSON?
-Below are the list of syntax rules of JSON
-The data is in name/value pairs
-The data is separated by commas
-Curly braces hold objects
-Square brackets hold arrays
+===========================================
 
-Why do you need JSON ?
+# 6. What is JSON ?
+
+JSON (JavaScript Object Notation) is a lightweight format that is used for data interchanging. It is based on a subset of JavaScript language in the way objects are built in JavaScript.
+
+# 7. What are the syntax rules of JSON?
+
+Below are the list of syntax rules of JSON
+
+- The data is in name/value pairs
+- The data is separated by commas
+- Curly braces hold objects
+- Square brackets hold arrays
+
+# 8. Why do you need JSON ?
+
 When exchanging data between a browser and a server, the data can only be text. Since JSON is text only, it can easily be sent to and from a server, and used as a data format by any programming language.
-What are PWAs ?
+
+# 9. What are PWAs ?
+
 Progressive web applications (PWAs) are a type of mobile app delivered through the web, built using common web technologies including HTML, CSS and JavaScript. These PWAs are deployed to servers, accessible through URLs, and indexed by search engines.
-What is V8 JavaScript engine ?
+
+# 10. What is V8 JavaScript engine ?
+
 V8 is an open source high-performance JavaScript engine used by the Google Chrome browser, written in C++. It is also being used in the node.js project. It implements ECMAScript and WebAssembly, and runs on Windows 7 or later, macOS 10.12+, and Linux systems that use x64, IA-32, ARM, or MIPS processors. Note: It can run standalone, or can be embedded into any C++ application.
+
+===========================================
+
 What is jQuery ?
 jQuery is a popular cross-browser JavaScript library that provides Document Object Model (DOM) traversal, event handling, animations and AJAX interactions by minimizing the discrepancies across browsers. It is widely famous with its philosophy of “Write less, do more”.
 What is the object type?
