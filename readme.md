@@ -62,31 +62,36 @@ V8 is an open source high-performance JavaScript engine used by the Google Chrom
 
 ===========================================
 
-What is jQuery ?
+# 11. What is jQuery ?
+
 jQuery is a popular cross-browser JavaScript library that provides Document Object Model (DOM) traversal, event handling, animations and AJAX interactions by minimizing the discrepancies across browsers. It is widely famous with its philosophy of “Write less, do more”.
-What is the object type?
+
+# 12. What is the object type?
+
 The object type refers to a compound value where you can set properties (named locations) that each hold their own values of any type.
 
 ```javascript
 var obj = {
-  a: "hello Prabir", // property
+  a: "hello Zareel", // property
   b: 20,
   c: true,
 };
-obj.a; // "hello Prabir", accessed with doted notation
+obj.a; // "hello Zareel", accessed with doted notation
 obj.b; // 20
 obj.c; // true
 
-obj["a"]; // "hello Prabir", accessed with bracket notation
+obj["a"]; // "hello Zareel", accessed with bracket notation
 obj["b"]; // 20
 obj["c"]; // true
 ```
 
-Explain arrays in JavaScript
-An array is an object that holds values (of any type) not particularly in named properties/keys, but rather in numerically indexed positions:
-var arr = ["hello Prabir", 22, true];
+# 13. Explain arrays in JavaScript
+
+An array is a collection of data displayed in a square bracket, seperated with commas.
 
 ```javascript
+var arr = ["hello Prabir", 22, true];
+
 arr[0]; // "hello Prabir"
 arr[1]; // 22
 arr[2]; // true
@@ -95,12 +100,14 @@ arr.length; // 3
 typeof arr; // "object"
 ```
 
-What is typeof operator?
+# 14. What is typeof operator?
+
 JavaScript provides a typeof operator that can examine a value and tell you what type it is:
+
+```javascript
 var a;
 typeof a; // "undefined"
 
-```
 a = "hello Prabir";
 typeof a; // "string"
 
@@ -120,10 +127,11 @@ a = { b: "c" };
 typeof a; // "object"
 ```
 
-Explain equality in JavaScript
+# 15. Explain equality in JavaScript
+
 JavaScript has both strict and type–converting comparisons:
-Strict comparison (e.g., ===) checks for value equality without allowing coercion
-Abstract comparison (e.g. ==) checks for value equality with coercion allowed
+Strict comparison (e.g., ===) checks for value equality and the datatypes
+Abstract comparison (e.g. ==) checks for value equality not datatypes
 
 ```javascript
 var a = "90";
@@ -132,6 +140,8 @@ var b = 90;
 a == b; // true
 a === b; // false
 ```
+
+===========================================
 
 Some simple equalityrules:
 
@@ -258,7 +268,7 @@ Hoisting is a JavaScript mechanism where variables and function declarations are
 
 Example 01: Variable Hoisting
 
-```
+```javascript
 console.log(message); // output : undefined
 
 var message = "The variable Has been hoisted";
@@ -266,7 +276,7 @@ var message = "The variable Has been hoisted";
 
 Example 02: Function Hoisting
 
-```
+```javascript
 function hoist() {
   a = 20;
   var b = 100;
@@ -286,8 +296,11 @@ Since it was declared, it is confined to the hoist() function scope.
 We can't print it out outside the confines of the hoist() function.
 Output: ReferenceError: b is not defined
 */
+```
+
 All declarations (function, var, let, const and class) are hoisted in JavaScript, while the var declarations are initialized with undefined, but let and const declarations remain uninitialized.
 
+```javascript
 console.log(a);
 let a = 3;
 
