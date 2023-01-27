@@ -66,23 +66,30 @@ V8 is an open source high-performance JavaScript engine used by the Google Chrom
 
 jQuery is a popular cross-browser JavaScript library that provides Document Object Model (DOM) traversal, event handling, animations and AJAX interactions by minimizing the discrepancies across browsers. It is widely famous with its philosophy of “Write less, do more”.
 
+`cross-browser testing is a type of non-functional testing that lets you know whether your website works as intended when accessed through`
+
+`AJAX- Asynchronous Javascript and XML, used to communicate with the server without refreshing the webpage and thus increasing the user experience and better performance`
+
 # 12. What is the object type?
 
-The object type refers to a compound value where you can set properties (named locations) that each hold their own values of any type.
+The object are a compound value where you can set properties that each hold their own values of any type. Objects are displayed in curly braces
 
 ```javascript
-var obj = {
-  a: "hello Zareel", // property
-  b: 20,
-  c: true,
+const person = {
+  firstName: "Zareel",
+  lastName: "Kalam",
+  eyeColor: "brown",
 };
-obj.a; // "hello Zareel", accessed with doted notation
-obj.b; // 20
-obj.c; // true
 
-obj["a"]; // "hello Zareel", accessed with bracket notation
-obj["b"]; // 20
-obj["c"]; // true
+// There are two ways to access object values.
+
+person.firstName;
+person.lastName;
+person.eyeColor;
+
+person["firstName"];
+person["lastName"];
+person["brown"];
 ```
 
 # 13. Explain arrays in JavaScript
@@ -90,41 +97,34 @@ obj["c"]; // true
 An array is a collection of data displayed in a square bracket, seperated with commas.
 
 ```javascript
-var arr = ["hello Prabir", 22, true];
+let arr = ["shon", "shine", "zareel"];
 
-arr[0]; // "hello Prabir"
-arr[1]; // 22
-arr[2]; // true
-arr.length; // 3
+console.log(arr[0]);
+console.log(arr[1]);
+console.log(arr[2]);
 
-typeof arr; // "object"
+console.log(typeof arr); // output: object
 ```
 
 # 14. What is typeof operator?
 
-JavaScript provides a typeof operator that can examine a value and tell you what type it is:
+JavaScript `typeof` operator tells you what datatype it is:
 
 ```javascript
-var a;
-typeof a; // "undefined"
+let name = "Zareel";
+console.log(typeof name);
 
-a = "hello Prabir";
-typeof a; // "string"
+let age = 43;
+console.log(typeof age);
 
-a = 42;
-typeof a; // "number"
+let val = false;
+console.log(typeof val);
 
-a = true;
-typeof a; // "boolean"
+let num = null;
+console.log(typeof num);
 
-a = null;
-typeof a; // "object" -- weird, bug
-
-a = undefined;
-typeof a; // "undefined"
-
-a = { b: "c" };
-typeof a; // "object"
+let cat;
+console.log(typeof cat);
 ```
 
 # 15. Explain equality in JavaScript
@@ -143,29 +143,66 @@ a === b; // false
 
 ===========================================
 
-Some simple equalityrules:
+# 16. What is Scope in JavaScript?
 
-If either value (aka side) in a comparison could be the true or false value, avoid == and use ===.
-If either value in a comparison could be of these specific values (0, "", or [] -- empty array), avoid == and use ===.
-In all other cases, you're safe to use ==. Not only is it safe, but in many cases it simplifies your code in a way that improves readability.
+Scope means from where the variable can be accessed.
 
-What is Scope in JavaScript?
-In JavaScript, each function gets its own scope. Scope is basically a collection of variables as well as the rules for how those variables are accessed by name. Only code inside that function can access that function's scoped variables.
-A variable name has to be unique within the same scope. A scope can be nested inside another scope. If one scope is nested inside another, code inside the innermost scope can access variables from either scope.
+- `function scope`: When a variable is declared inside a function, it is only accessible within that function and cannot be used outside that function.
 
-Explain Values and Types in JavaScript
-JavaScript has typed values, not typed variables. The following built-in types are available:
+```javaScript
+function getName() {
+  firstName = "zareel";
+  console.log(firstName);//can be accessed from here
+}
+console.log(firstName);// cant be accessed from here
+getName();
+
+```
+
+- `block scope`: A variable when declared inside the if or switch conditions or inside for or while loops, are accessible within that particular condition or loop.
+
+```javascript
+function getName() {
+  let name = "Zareel";
+  console.log(name);
+  if (true) {
+    let name = "Shon";
+    console.log(name);
+  }
+}
+getName();
+```
+
+---
+
+# 17. What are Types in JavaScript
+
+The following are built in data typesvailable:
 string
 number
 boolean
 null and undefined
 object
-symbol (new to ES6)
+symbol
 
-What is `let` keyword in JavaScript?
-In addition to creating declarations for variables at the function level, ES6 lets you declare variables to belong to individual blocks (pairs of { .. }), using the let keyword.
-What is the difference between == and ===?
-== is the abstract equality operator while === is the strict equality operator. The == operator will compare for equality after doing any necessary type conversions. The === operator will not do type conversion, so if two values are not the same type === will simply return false. When using ==, funky things can happen, such as:
+---
+
+# 18. Difference between let, var and const
+
+- `var` variables can be updated and re-declared within its scope.
+- `let` variables can be updated but not re-declared.
+- `const` variables can neither be updated nor re-declared.
+
+- `var`: has Global Scope, function scope, block scope
+- `let`: has function scope, block scope
+- `const`: has function scope, block scope
+
+---
+
+# 19. What is the difference between == and ===?
+
+Both are used to compare values.
+=== checks the datatypes as well
 
 ```javascript
 1 == "1"; // true
@@ -176,17 +213,14 @@ What is the difference between == and ===?
 0 == false; // true
 ```
 
-never to use the == operator, except for convenience when comparing against null or undefined, where a == null will return true if a is null or undefined.
+---
 
-```javascript
-var a = null;
-console.log(a == null); // true
-console.log(a == undefined); // true
-```
+# 20. What's the difference between Host objects and Native objects?
 
-What's the difference between Host objects and Native objects?
-Native objects are objects that are part of the JavaScript language defined by the ECMAScript specification, such as String, Math, RegExp, Object, Function, etc.
-Host objects are provided by the runtime environment (browser or Node), such as window, XMLHTTPRequest, etc.
+Native objects are objects that are part of the JavaScript language defined by the ECMAScript specification, such as String, Math, Object, Function, etc.
+Host objects are provided by the runtime environment (browser or Node), such as window.
+
+==============================================
 
 What is difference between document.getElementById() and document.querySelector()?
 document.getElementById():
