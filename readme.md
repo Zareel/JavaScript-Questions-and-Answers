@@ -154,7 +154,8 @@ function getName() {
   firstName = "zareel";
   console.log(firstName);//can be accessed from here
 }
-console.log(firstName);// cant be accessed from here
+console.log(firstName);// can'
+t be accessed from here
 getName();
 
 ```
@@ -178,12 +179,13 @@ getName();
 # 17. What are Types in JavaScript
 
 The following are built in data typesvailable:
-string
-number
-boolean
-null and undefined
-object
-symbol
+
+- string
+- number
+- boolean
+- null and undefined
+- object
+- symbol
 
 ---
 
@@ -217,30 +219,40 @@ Both are used to compare values.
 
 # 20. What's the difference between Host objects and Native objects?
 
-Native objects are objects that are part of the JavaScript language defined by the ECMAScript specification, such as String, Math, Object, Function, etc.
-Host objects are provided by the runtime environment (browser or Node), such as window.
+- Native objects are objects that are part of the JavaScript language defined by the ECMAScript specification, such as String, Math, Object, Function, etc.
+- Host objects are provided by the runtime environment (browser or Node), such as window.
 
 ==============================================
 
-What is difference between document.getElementById() and document.querySelector()?
-document.getElementById():
-Returns an element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
+# 21. What is difference between document.getElementById() and document.querySelector()?
 
-element = document.getElementById(id);
-document.querySelector(): Returns the first matching Element node within the node's subtree. If no matching node is found, null is returned.
-element = document.querySelector(selectors);
-document.querySelectorAll(): Returns a NodeList containing all matching Element nodes within the node's subtree, or an empty NodeList if no matches are found.
-element = document.querySelectorAll(selectors);
+- ## document.getElementById():
 
-When to use reduce(), map(), foreach() and filter() in JavaScript?
-forEach(): It takes a callback function and run that callback function on each element of array one by one.
-Basically forEach works as a traditional for loop looping over the array and providing array elements to do operations on them.
+Returns the element whose id matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
+
+- ## document.querySelector():
+
+Returns the first element from the document if it matches the specified selector of a group of selectors.
+
+- ## document.querySelectorAll():
+
+Returns all elements that matches the specified selector;
+
+# 22. What is a callback?
+
+A callback is a function passed as an argument in another function
+
+# 23. When to use reduce(), map(), foreach() and filter() in JavaScript?
+
+- ## forEach():
+
+It takes a callback function and run that callback function on each element of array one by one.
 
 ```javascript
 var arr = [10, 20, 30];
 
-arr.forEach(function (elem, index) {
-  console.log(elem + " comes at " + index);
+arr.forEach(function (element, index) {
+  console.log(element + " comes at " + index);
 });
 ```
 
@@ -252,53 +264,47 @@ output
 30 comes at 2
 ```
 
-filter(): The main difference between forEach() and filter() is that forEach just loop over the array and executes the callback but filter executes the callback and check its return value. If the value is true element remains in the resulting array but if the return value is false the element will be removed for the resulting array.
-Note: filter does not update the existing array it will return a new filtered array every time.
+- ## filter():
+
+filter() returns a new array with the elements that passes a test provided by a function.
+Note: filter does not modify the original array.
 
 ```javascript
 var arr = [10, 20, 30];
 
-var result = arr.filter(function (elem) {
+var result = arr.filter(function (element) {
   return elem !== 20;
 });
 console.log(result);
 ```
 
-map():
+- ## map():
+
 map() like filter() & forEach() takes a callback and run it against every element on the array but whats makes it unique is it generate a new array based on your existing array.
 
-Like filter(), map() also returns an array. The provided callback to map modifies the array elements and save them into the new array upon completion that array get returned as the mapped array.
-
 ```javascript
-var arr = [10, 20, 30];
-
-var mapped = arr.map(function (elem) {
-  return elem * 10;
+let arr = [1, 2, 3, 4, 5];
+let mapped = arr.map((element) => {
+  return element * 10;
 });
 console.log(mapped);
 ```
 
-output:
+- ## reduce():
+  reduce() method of the array object is used to reduce the array to one single value.
 
-```
-[100, 200, 300];
-```
-
-reduce():
-reduce() method of the array object is used to reduce the array to one single value.
-
-```
+```javascript
 var arr1 = [10, 20, 30];
 
 var sum = arr.reduce(function (sum, element) {
   return sum + element;
 });
 console.log(sum); // Output: 60
-
 ```
 
-What is Hoisting in JavaScript?
-Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.
+# 24 What is Hoisting in JavaScript?
+
+Hoisting is a JavaScript mechanism where the declaratio of variables and functions are moved to the top of their scope before the execution of the code.
 
 Example 01: Variable Hoisting
 
@@ -341,26 +347,28 @@ let a = 3;
 // Output: ReferenceError: a is not defined
 ```
 
-They will only get initialized when their lexical binding (assignment) is evaluated during runtime by the JavaScript engine. This means we can’t access the variable before the engine evaluates its value at the place it was declared in the source code. This is what we call Temporal Dead Zone, A time span between variable creation and its initialization where they can’t be accessed.
+# 25. What are closures?
 
-What are closures?
 A closure is the combination of a function and the lexical environment within which that function was declared. i.e, It is an inner function that has access to the outer or enclosing function’s variables. The closure has three scope chains.
 Own scope where variables defined between its curly brackets
 Outer function’s variables
 Global variables
 
-```
-function Welcome(name) {
-  var greetingInfo = function (message) {
-    console.log(message + " " + name);
+```javascript
+let outerFunction = () => {
+  firstName = "zareel";
+  let innerFunction = () => {
+    console.log(firstName);
   };
-  return greetingInfo;
-}
-var myFunction = Welcome("Prabir");
-myFunction("Welcome "); // Output: Welcome prabir
+  return innerFunction;
+};
+let value = outerFunction();
+value();
 ```
 
-As per the above code, the inner function greetingInfo() has access to the variables in the outer function Welcome() even after outer function has returned.
+Here, when the outerFunction() gets called, an execution context of the outerFunction() comes up and it does its task and disappears from the memory creating a reference of the innerFunction() in the memory. This reference is stored in the variable result. As it is a reference of a function, the result() becomes a function calling the innerfunction() which maintains a reference to its lexical environment, within which the variable firstName exists. For this reason, when the result() is invoked, the variable firstName remains available for use, and "Shine" is passed to console.log even after the parent function has closed.
+
+# -----------------------------------------------
 
 How do you clone an object in JavaScript?
 Using the object spread operator ..., the object own enumerable properties can be copied into the new object. This creates a shallow clone of the object.
