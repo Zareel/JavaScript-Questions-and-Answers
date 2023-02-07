@@ -123,7 +123,7 @@ let a = 100;
 */
 
 //?closure
-
+/*
 let outerFunction = () => {
   firstName = "zareel";
   let innerFunction = () => {
@@ -133,3 +133,90 @@ let outerFunction = () => {
 };
 let value = outerFunction();
 value();
+*/
+
+//? spread operators
+/*
+let obj = { a: 1, b: 2 };
+let shadowclone = { ...obj };
+console.log(shadowclone);
+*/
+
+//?closure
+/*
+let outerFunction = () => {
+  let firstName = "Zareel";
+  let innerFunction = () => {
+    console.log(firstName);
+  };
+  return innerFunction;
+};
+let result = outerFunction();
+result();
+*/
+
+//? ...spread operator
+/*
+let obj = { a: 1, b: 2, c: 3 };
+let shadowobj = { ...obj };
+console.log(shadowobj);
+*/
+
+//? prototype chaining
+/*
+function Person(firstName, lastName, age) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.age = age;
+}
+
+Person.prototype.getFullName = function () {
+  return this.firstName + " " + this.lastName;
+};
+
+var person = new Person("Zareel", "Kalam", 43);
+console.log(person);
+
+person.hasOwnProperty("fristName");
+person.hasOwnProperty("getFullName");
+person.getFullName();
+*/
+
+//? call()
+/*
+let employee1 = { firstName: "Zareel", lastName: "Kalam" };
+let employee2 = { firstName: "Shon", lastName: "Leo" };
+
+function greet(greeting1, greeting2) {
+  console.log(greeting1 + " " + this.firstName + " " + this.lastName);
+}
+greet.call(employee1, "hello how are you?");
+greet.call(employee2, "hello how are you?");
+*/
+
+//? bind()
+/*
+let employee1 = { firstName: "Zareel", lastName: "Kalam" };
+let employee2 = { firstName: "Shon", lastName: "Leo" };
+
+function greet(greeting1, greeting2) {
+  console.log(greeting1 + " " + this.firstName + " " + this.lastName);
+}
+
+var first = greet.bind(employee1);
+var second = greet.bind(employee2);
+
+first("hello");
+second("hello");
+*/
+
+//? apply()
+
+let employee1 = { firstName: "Zareel", lastName: "Kalam" };
+let employee2 = { firstName: "Shon", lastName: "Leo" };
+
+function greet(greeting1, greeting2) {
+  console.log(greeting1 + " " + this.firstName + " " + this.lastName);
+}
+
+greet.apply(employee1, ["Hello", "How are you?"]);

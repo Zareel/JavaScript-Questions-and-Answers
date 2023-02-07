@@ -228,11 +228,11 @@ Both are used to compare values.
 
 - ## document.getElementById():
 
-Returns the element whose id matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
+Returns the element whose id matches the specified string.
 
 - ## document.querySelector():
 
-Returns the first element from the document if it matches the specified selector of a group of selectors.
+Returns the first element from the document that matches the specified selector or a group of selectors.
 
 - ## document.querySelectorAll():
 
@@ -240,9 +240,24 @@ Returns all elements that matches the specified selector;
 
 # 22. What is a callback?
 
-A callback is a function passed as an argument in another function
+- A callback is a function that is passed as a parameter in another function
 
-# 23. When to use reduce(), map(), foreach() and filter() in JavaScript?
+```javascript
+setTimeout(() => {});
+```
+
+# 23. What is Higher Order Function(HOF)?
+
+HOF is a function that take another function as parameter
+
+```javascript
+let names = ["Zareel", "Shon", "Shine"];
+let message = names.forEach((name){
+  console.log("Hi " + name)
+})
+```
+
+# 24. When to use reduce(), map(), foreach() and filter() in JavaScript?
 
 - ## forEach():
 
@@ -302,7 +317,7 @@ var sum = arr.reduce(function (sum, element) {
 console.log(sum); // Output: 60
 ```
 
-# 24 What is Hoisting in JavaScript?
+# 25 What is Hoisting in JavaScript?
 
 Hoisting is a JavaScript mechanism where the declaratio of variables and functions are moved to the top of their scope before the execution of the code.
 
@@ -347,12 +362,11 @@ let a = 3;
 // Output: ReferenceError: a is not defined
 ```
 
-# 25. What are closures?
+==================================================================
 
-A closure is the combination of a function and the lexical environment within which that function was declared. i.e, It is an inner function that has access to the outer or enclosing function’s variables. The closure has three scope chains.
-Own scope where variables defined between its curly brackets
-Outer function’s variables
-Global variables
+# 26. What are closures?
+
+A closure is the combination of a function and the lexical environment within which that function was declared.
 
 ```javascript
 let outerFunction = () => {
@@ -362,55 +376,39 @@ let outerFunction = () => {
   };
   return innerFunction;
 };
-let value = outerFunction();
-value();
+let result = outerFunction();
+result();
 ```
 
-Here, when the outerFunction() gets called, an execution context of the outerFunction() comes up and it does its task and disappears from the memory creating a reference of the innerFunction() in the memory. This reference is stored in the variable result. As it is a reference of a function, the result() becomes a function calling the innerfunction() which maintains a reference to its lexical environment, within which the variable firstName exists. For this reason, when the result() is invoked, the variable firstName remains available for use, and "Shine" is passed to console.log even after the parent function has closed.
+Here, when the outerFunction() gets called, an execution context of the outerFunction() comes up and it does its task and disappears from the callstack (memory) creating a reference of the innerFunction() in the memory. This reference is stored in the variable result. As it is a reference of a function, the result() becomes a function calling the innerfunction() which maintains a reference to its lexical environment, within which the variable firstName exists. For this reason, when the result() is invoked, the variable firstName remains available for use, and "Shine" is passed to console.log even after the parent function has closed.
 
-# -----------------------------------------------
+# 27. How do you clone an object in JavaScript?
 
-How do you clone an object in JavaScript?
-Using the object spread operator ..., the object own enumerable properties can be copied into the new object. This creates a shallow clone of the object.
+Using the object spread operator ..., the object that own enumerable properties can be copied into the new object. This creates a shallow clone of the object.
 
-```
+```Javascript
 const obj = { a: 1, b: 2 };
 const shallowClone = { ...obj };
 ```
 
-With this technique, prototypes are ignored. In addition, nested objects are not cloned, but rather their references get copied, so nested objects still refer to the same objects as the original. Deep-cloning is much more complex in order to effectively clone any type of object (Date, RegExp, Function, Set, etc) that may be nested within the object.
+# 28. What is an event flow?
 
-Other alternatives include:
+Event flow in javascript has three important phases.
 
-JSON.parse(JSON.stringify(obj)) can be used to deep-clone a simple object, but it is CPU-intensive and only accepts valid JSON (therefore it strips functions and does not allow circular references). Object.assign({}, obj) is another alternative. Object.keys(obj).reduce((acc, key) => (acc[key] = obj[key], acc), {}) is another more verbose alternative that shows the concept in greater depth.
+- Evert Capturing phace
+- Target phase
+- Event Bubbling phase
 
-What is variable shadowing in javascript?
-Variable shadowing occurs when a variable declared within a certain scope (decision block, method, or inner class) has the same name as a variable declared in an outer scope. This outer variable is said to be shadowed.
-If there is a variable in the global scope, and you'd like to create a variable with the same name in a function. The variable in the inner scope will temporarily shadow the variable in the outer scope.
+Event capturing is the first to occur, where the events are intercepted if necessary
+This is followed by the event reaching the actual target
+And the final phase is bubbling when the ultimate response to the event takes place
 
-```
-var value = 20;
+# 29 What is prototype chain?
 
-function Hoist(value) {
-  alert(value);
-}
-
-Hoist(30); //output:30
-
-```
-
-What is an event flow?
-Event flow is the order in which event is received on the web page. When you click an element that is nested in various other elements, before your click actually reaches its destination, or target element, it must trigger the click event each of its parent elements first, starting at the top with the global window object.
-There are two ways of event flow
-
-Top to Bottom(Event Capturing)
-Bottom to Top (Event Bubbling)
-
-What is prototype chain?
 Nearly all objects in JavaScript are instances of Object. That means all the objects in JavaScript inherit the properties and methods from Object.prototype. This is called Prototype chaining.
-Prototype chaining is used to build new types of objects based on existing ones. It is similar to inheritance in a class based language. The prototype on object instance is available through Object.getPrototypeOf(object) or proto property whereas prototype on constructors function is available through Object.prototype.
+Prototype chaining is used to build new types of objects based on existing ones. It is similar to inheritance in a class based language.
 
-```
+```javascript
    function Person(firstName, lastName, age) {
   this.firstName = firstName;
   this.lastName = lastName;
@@ -422,63 +420,71 @@ Person.prototype.getFullName = function() {
 }
 
 // we have added getFullName method in Person’s prototype.
-var person = new Person("Prabir", "Kumar", 25);
+var person = new Person("Zareel", "Kalam", 43);
 // It will create an instance of the Person class
 > person.hasOwnProperty("firstName");  // true
 > person.hasOwnProperty("getFullName");  // false
-> person.getFullName(); // Prabir Kumar
+> person.getFullName(); //
 
 ```
 
-What is the difference between Call, Apply and Bind?
-call():
+# 30 What is the difference between Call, Apply and Bind?
 
-The call() method invokes a function with a given this value and arguments provided one by one
+## call():
 
-````
-         var employee1 = {firstName: 'Prabir', lastName: 'Kumar'};
-         var employee2 = {firstName: 'Kumar', lastName: 'P'};
+The call() method invokes a function with a given `this` value and arguments provided one by one
 
-        function greet(greeting1, greeting2) {
-         console.log(greeting1 + ' ' + this.firstName + ' ' + this.lastName+ ', '+ greeting2);
-        }
-
-        greet.call(employee1, 'Hello', 'How are you?'); // Hello Prabir Kumar, How are you?
-       greet.call(employee2, 'Hello', 'How are you?'); // Hello Kumar P, How are you?
-
-    ```
-apply(): Invokes the function and allows you to pass in arguments as an array
-````
-
-var employee1 = {firstName: 'Prabir', lastName: 'Kumar'};
-var employee2 = {firstName: 'Kumar', lastName: 'P'};
-
-    function greet(greeting1, greeting2) {
-
-    console.log(greeting1 + ' ' + this.firstName + ' ' + this.lastName+ ', '+ greeting2);
-         }
-
-    greet.apply(employee1, ['Hello', 'How are you?']); // Hello Prabir Kumar, How are you?
-    greet.apply(employee2, ['Hello', 'How are you?']); // Hello Kumar P, How are you?
-
-bind():
-returns a new function, allowing you to pass in an array and any number of arguments
-
-```
-var employee1 = {firstName: 'Prabir', lastName: 'Kumar'};
-var employee2 = {firstName: 'Kumar', lastName: 'P'};
+```javascript
+var employee1 = { firstName: "Zareel", lastName: "Kalam" };
+var employee2 = { firstName: "Shon", lastName: "Leo" };
 
 function greet(greeting1, greeting2) {
-    console.log(greeting1 + ' ' + this.firstName + ' ' + this.lastName+ ', '+ greeting2);
+  console.log(
+    greeting1 + " " + this.firstName + " " + this.lastName + ", " + greeting2
+  );
+}
+
+greet.call(employee1, "Hello", "How are you?"); // Hello Prabir Kumar, How are you?
+greet.call(employee2, "Hello", "How are you?"); // Hello Kumar P, How are you?
+```
+
+## apply():
+
+Invokes the function and allows you to pass in arguments as an array
+
+```javascript
+var employee1 = { firstName: "Prabir", lastName: "Kumar" };
+var employee2 = { firstName: "Kumar", lastName: "P" };
+
+function greet(greeting1, greeting2) {
+  console.log(greeting1 + " " + this.firstName + " " + this.lastName);
+}
+
+greet.apply(employee1, ["Hello", "How are you?"]); // Hello Prabir Kumar, How are you?
+greet.apply(employee2, ["Hello", "How are you?"]); // Hello Kumar P, How are you?
+```
+
+## bind():
+
+returns a new function, allowing you to pass in an array and any number of arguments
+
+```javascript
+var employee1 = { firstName: "Prabir", lastName: "Kumar" };
+var employee2 = { firstName: "Kumar", lastName: "P" };
+
+function greet(greeting1, greeting2) {
+  console.log(
+    greeting1 + " " + this.firstName + " " + this.lastName + ", " + greeting2
+  );
 }
 
 var inviteEmployee1 = greet.bind(employee1);
 var inviteEmployee2 = greet.bind(employee2);
-inviteEmployee1('Hello', 'How are you?'); // Hello Prabir Kumar, How are you?
-inviteEmployee2('Hello', 'How are you?'); // Hello Kumar P, How are you?
-
+inviteEmployee1("Hello", "How are you?"); // Hello Prabir Kumar, How are you?
+inviteEmployee2("Hello", "How are you?"); // Hello Kumar P, How are you?
 ```
 
+========================================================================================
 What is a higher order function?
 A Higher-Order function is a function that receives a function as an argument or returns the function as output.
 
