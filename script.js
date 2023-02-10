@@ -211,7 +211,7 @@ second("hello");
 */
 
 //? apply()
-
+/*
 let employee1 = { firstName: "Zareel", lastName: "Kalam" };
 let employee2 = { firstName: "Shon", lastName: "Leo" };
 
@@ -220,3 +220,61 @@ function greet(greeting1, greeting2) {
 }
 
 greet.apply(employee1, ["Hello", "How are you?"]);
+*/
+//? higher order function
+/*
+setTimeout(() => {});
+*/
+//? unani function
+/*
+let unaniFunction = (a) => console.log(a + 10);
+
+function volume(length) {
+  return function (width) {
+    return function (height) {
+      return height * width * length;
+    };
+  };
+}
+volume(2)(6)(3);
+*/
+//?callback
+/*
+function add(a, b, callback) {
+  const result = a + b;
+  callback(result);
+}
+
+function logResult(result) {
+  console.log(result);
+}
+
+add(2, 3, logResult); // logs "5"
+*/
+//?callback
+/*
+function firstFunction() {
+  // Simulate a code delay
+  setTimeout(function () {
+    console.log("First function called");
+  }, 1000);
+}
+function secondFunction() {
+  console.log("Second function called");
+}
+firstFunction();
+secondFunction();
+*/
+
+function shine() {
+  setTimeout(() => {
+    console.log("shine is the first child");
+  }, 1000);
+}
+
+function shon() {
+  console.log("shon is the second child");
+}
+
+shine();
+shon();

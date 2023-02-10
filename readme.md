@@ -485,33 +485,34 @@ inviteEmployee2("Hello", "How are you?"); // Hello Kumar P, How are you?
 ```
 
 ========================================================================================
-What is a higher order function?
-A Higher-Order function is a function that receives a function as an argument or returns the function as output.
 
-For example, Array.prototype.map(), Array.prototype.filter() and Array.prototype.reduce() are some of the Higher-Order functions in javascript.
+# 31. What is a higher order function?
 
-```
-const arr1 = [10, 20, 30];
-const arr2 = arr1.map(function(item) {
-  return item * 10;
-});
-console.log(arr2);
+HOF is a function that take another function as parameter
+
+```javascript
+setTimeout(() => {});
 ```
 
-What is a unary function?
-Unary function (i.e. monadic) is a function that accepts exactly one argument. Let us take an example of unary function. It stands for single argument accepted by a function.
-const unaryFunction = a => console.log (a + 20); //Add 20 to the given argument and display the value
+# 32. What is a unary function?
 
-What is currying function?
+Unary function (i.e. monadic) is a function that accepts exactly one argument.
+
+```javascript
+const unaryFunction = (a) => console.log(a + 20);
+```
+
+# 33. What is currying function?
+
 Currying is the process of taking a function with multiple arguments and turning it into a sequence of functions each with only a single argument.
 
-```
+```javascript
 function volume(length) {
-  return function(width) {
-    return function(height) {
+  return function (width) {
+    return function (height) {
       return height * width * length;
-    }
-  }
+    };
+  };
 }
 
 volume(2)(6)(3); // 36
@@ -519,80 +520,73 @@ volume(2)(6)(3); // 36
 
 Curried functions are great to improve code re-usability and functional composition.
 
-What are the restrictions of web workers on DOM?
-WebWorkers do not have access to below javascript objects since they are defined in an external files
+# 34. What are the restrictions of web workers on DOM?
+
+Web Workers do not have access to below javascript objects since they are defined in an external files
 Window object
 Document object
 Parent object
 
-What is a promise?
-A promise is an object that may produce a single value some time in the future with either a resolved value or a reason that it’s not resolved(for example, network error). It will be in one of the 3 possible states: fulfilled, rejected, or pending. Syntax
+# 35. What is a promise?
 
-```
-const promise = new Promise(function(resolve, reject) {
+Promises are used to handle asynchronous operations in JavaScript. They provide an alternative approach for callbacks by reducing the callback hell and writing the cleaner code.
+
+`Promise object has four states:`
+
+- Pending - Initial state of promise. This state represents that the promise has neither been fulfilled nor been rejected, it is in the pending state.
+
+- Fulfilled - This state represents that the promise has been fulfilled, meaning the async operation is completed.
+
+- Rejected - This state represents that the promise has been rejected for some reason, meaning the async operation has failed.
+
+- Settled - This state represents that the promise has been either rejected or fulfilled.
+
+```javascript
+const promise = new Promise(function (resolve, reject) {
   // promise description
-})
+});
 ```
 
-Promises are used to handle asynchronous operations. They provide an alternative approach for callbacks by reducing the callback hell and writing the cleaner code.
+====================================================================================================
 
-Promises have three states:
+36. What is a callback function?
+    A callback function is a function passed into another function as an argument.
 
-Pending: This is an initial state of the Promise before an operation begins
-Fulfilled: This state indicates that specified operation was completed.
-Rejected: This state indicates that the operation did not complete. In this case an error value will be thrown.
-
-What is a callback function?
-A callback function is a function passed into another function as an argument. This function is invoked inside the outer function to complete an action.
-
-```
-function add(a, b, callback) {
-  const result = a + b;
-  callback(result);
-}
-
-function logResult(result) {
-  console.log(result);
-}
-
-add(2, 3, logResult); // logs "5"
+```javascript
+setTimeout(() => {});
 ```
 
-In this example, we have a add function that takes three arguments: two numbers (a and b) and a callback function. The add function performs a simple addition operation and then invokes the callback function with the result.
+# 37. Why do we need callbacks?
 
-We also have a second function called logResult that takes a single argument (the result of the addition) and logs it to the console.
-
-In the last line of the example, we are calling the add function and passing it the numbers 2 and 3, along with the logResult function as a callback. This causes the add function to invoke the logResult function, passing it the result of the addition (5), which in turn logs the result to the console.
-
-Why do we need callbacks?
 The callbacks are needed because javascript is a event driven language. That means instead of waiting for a response javascript will keep executing while listening for other events.
 
 Let us take an example with first function invoking an API call(simulated by setTimeout) and next function which logs the message
 
-```
+```javascript
 function firstFunction() {
   // Simulate a code delay
-  setTimeout( function() {
-    console.log('First function called');
-  }, 1000 );
+  setTimeout(function () {
+    console.log("First function called");
+  }, 1000);
 }
 function secondFunction() {
-  console.log('Second function called');
+  console.log("Second function called");
 }
 firstFunction();
 secondFunction();
 
-Output
+Output;
 // Second function called
 // First function called
 ```
 
 As observed from the output, javascript didnot wait for the response of first function and remaining code block get executed. So callbacks used in a way to make sure that certain code does not execute until other code finished execution.
 
-What is a callback hell?
+# 38. What is a callback hell?
+
 Callback Hell is an anti-pattern with multiple nested callbacks which makes code hard to read and debug when dealing with asynchronous logic. The callback hell looks like below,
 
-```
+```javascript
 async1(function() {
     async2(function() {
         async3(function() {
@@ -604,52 +598,51 @@ async1(function() {
 });
 ```
 
-What is promise chaining?
+# 39. What is promise chaining?
+
 The process of executing a sequence of asynchronous tasks one after another using promises is known as Promise chaining.
 
-```
-new Promise(function(resolve, reject) {
-
+```javascript
+new Promise(function (resolve, reject) {
   setTimeout(() => resolve(1), 1000);
-
-}).then(function(result) {
-
-  console.log(result); // 1
-  return result * 2;
-
-}).then(function(result) {
-
-  console.log(result); // 2
-  return result * 3;
-
-}).then(function(result) {
-
-  console.log(result); // 6
-  return result * 4;
-
-});
+})
+  .then(function (result) {
+    console.log(result); // 1
+    return result * 2;
+  })
+  .then(function (result) {
+    console.log(result); // 2
+    return result * 3;
+  })
+  .then(function (result) {
+    console.log(result); // 6
+    return result * 4;
+  });
 ```
 
 In the above handlers, the result is passed to the chain of .then() handlers with the below work flow,
 
 The initial promise resolves in 1 second, After that .then handler is called by logging the result(1) and then return a promise with the value of result _ 2. After that the value passed to the next .then handler by logging the result(2) and return a promise with result _ 3. Finally the value passed to the last .then handler by logging the result(6) and return a promise with result \* 4.
 
-What is eval?
+# 40. What is eval?
+
 The eval() function evaluates JavaScript code represented as a string. The string can be a JavaScript expression, variable, statement, or sequence of statements.
 
-```
- console.log(eval('3 + 2')); //  5
+```javascript
+console.log(eval("3 + 2")); //  5
 ```
 
-What is isNaN?
+# 41. What is isNaN?
+
 The isNaN() function is used to determine whether a value is an illegal number (Not-a-Number) or not. i.e, This function returns true if the value equates to NaN. Otherwise it returns false.
 
-```
-isNaN('Hello') //true
-isNaN('100') //false
-typeof(NaN) //Number
+```javascript
+isNaN("Hello"); //true
+isNaN("100"); //false
+typeof NaN; //Number
 ```
 
+===========================================================================================================
 What are the pros and cons of promises over callbacks?
 Below are the list of pros and cons of promises over callbacks, Pros:
 It avoids callback hell which is unreadable
