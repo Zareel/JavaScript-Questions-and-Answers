@@ -549,8 +549,9 @@ const promise = new Promise(function (resolve, reject) {
 
 ====================================================================================================
 
-36. What is a callback function?
-    A callback function is a function passed into another function as an argument.
+# 36. What is a callback function?
+
+    A callback function is a function passed into another function as a parameter.
 
 ```javascript
 setTimeout(() => {});
@@ -558,7 +559,7 @@ setTimeout(() => {});
 
 # 37. Why do we need callbacks?
 
-The callbacks are needed because javascript is a event driven language. That means instead of waiting for a response javascript will keep executing while listening for other events.
+The callbacks are needed because javascript is an event driven language. That means instead of waiting for a response javascript will keep executing while listening for other events.
 
 Let us take an example with first function invoking an API call(simulated by setTimeout) and next function which logs the message
 
@@ -643,28 +644,34 @@ typeof NaN; //Number
 ```
 
 ===========================================================================================================
-What are the pros and cons of promises over callbacks?
-Below are the list of pros and cons of promises over callbacks, Pros:
-It avoids callback hell which is unreadable
-Easy to write sequential asynchronous code with .then()
-Easy to write parallel asynchronous code with Promise.all()
-Solves some of the common problems of callbacks(call the callback too late, too early, many times and swallow errors/exceptions)
-Cons:
 
-It makes little complex code
-You need to load a polyfill if ES6 is not supported
+# 42. What are the pros and cons of promises over callbacks?
 
-What is the difference between an attribute and a property?
+Below are the list of pros and cons of promises over callbacks,
+
+## Pros:
+
+- It avoids callback hell which is unreadable
+- Easy to write sequential asynchronous code with .then()
+- Easy to write parallel asynchronous code with Promise.all()
+- Solves some of the common problems of callbacks(call the callback too late, too early, many times and swallow errors/exceptions)
+
+## Cons:
+
+- It makes little complex code
+- You need to load a polyfill if ES6 is not supported
+
+# 43. What is the difference between an attribute and a property?
+
 Attributes are defined on the HTML markup whereas properties are defined on the DOM. For example, the below HTML element has 2 attributes type and value,
 
-```
+```javascript
 <input type="text" value="Name:">
 ```
 
 You can retrieve the attribute value as below,
 
-```
-
+```javascript
 const input = document.querySelector('input');
 console.log(input.getAttribute('value')); // Good morning
 console.log(input.value); // Good morning
@@ -674,26 +681,48 @@ console.log(input.getAttribute('value')); // Good morning
 console.log(input.value); // Good evening
 ```
 
-What is the purpose of void(0)?
-The void(0) is used to prevent the page from refreshing. This will be helpful to eliminate the unwanted side-effect, because it will return the undefined primitive value. It is commonly used for HTML document that uses href="JavaScript:void(0);" within an anchor(a) element. i.e, when you click a link, the browser loads a new page or refreshes the same page. But this behavior will be prevented using this expression. For example, the below link notify the message without reloading the page
+# 43. What is the purpose of void(0)?
 
+- The void(0) is used to prevent the page from refreshing.
+- This will be helpful to eliminate the unwanted side-effect, because it will return the undefined primitive value.
+- It is commonly used for HTML document that uses href="JavaScript:void(0);" within an anchor(a) element.
+- i.e, when you click a link, the browser loads a new page or refreshes the same page.
+- But this behavior will be prevented using this expression. For example, the below link notify the message without reloading the page
+
+```javascript
+<a href="JavaScript:void(0);" onclick="alert('Well done!')">
+  Click Me!
+</a>
 ```
-<a href="JavaScript:void(0);" onclick="alert('Well done!')">Click Me!</a>
-```
 
-Is JavaScript a compiled or interpreted language?
-JavaScript is an interpreted language, not a compiled language. An interpreter in the browser reads over the JavaScript code, interprets each line, and runs it. Nowadays modern browsers use a technology known as Just-In-Time (JIT) compilation, which compiles JavaScript to executable bytecode just as it is about to run.
-Is JavaScript a case-sensitive language?
-Yes, JavaScript is a case sensitive language. The language keywords, variables, function & object names, and any other identifiers must always be typed with a consistent capitalization of letters.
+# 44. Is JavaScript a compiled or interpreted language?
 
-What is BOM?
-The Browser Object Model (BOM) allows JavaScript to "talk to" the browser. It consists of the objects navigator, history, screen, location and document which are children of window. The Browser Object Model is not standardized and can change based on different browsers.
-What is the use of setTimeout?
+- JavaScript is an interpreted language, not a compiled language.
+- An interpreter in the browser reads over the JavaScript code, interprets each line, and runs it.
+- Nowadays modern browsers use a technology known as Just-In-Time (JIT) compilation, which compiles JavaScript to executable byte-code just as it is about to run.
+
+# 45. Is JavaScript a case-sensitive language?
+
+- Yes, JavaScript is a case sensitive language.
+- The language keywords, variables, function & object names, and any other identifiers must always be typed with a consistent capitalization of letters.
+
+# 46. What is BOM?
+
+- The Browser Object Model (BOM) allows JavaScript to "talk to" the browser.
+- It consists of the objects navigator, history, screen, location and document which are children of window.
+- The Browser Object Model is not standardized and can change based on different browsers.
+
+# 47. What is the use of setTimeout?
+
 The setTimeout() method is used to call a function or evaluates an expression after a specified number of milliseconds. For example, let us log a message after 2 seconds using setTimeout method,
 
+```javascript
+setTimeout(function () {
+  console.log("Heyy Zareel");
+}, 2000);
 ```
-setTimeout(function() { console.log("Heyy Prabir"); }, 2000);
-```
+
+========================================================================================================
 
 What is the use of setInterval?
 The setInterval() method is used to call a function or evaluates an expression at specified intervals (in milliseconds). For example, let us log a message after 2 seconds using setInterval method,

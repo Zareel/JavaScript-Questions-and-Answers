@@ -265,7 +265,7 @@ function secondFunction() {
 firstFunction();
 secondFunction();
 */
-
+/*
 function shine() {
   setTimeout(() => {
     console.log("shine is the first child");
@@ -278,3 +278,69 @@ function shon() {
 
 shine();
 shon();
+*/
+
+//?callback
+/*
+setTimeout(()=>{})
+*/
+//? callback is important
+/*
+let firstFuncion = () => {
+  setTimeout(() => {
+    console.log("This is first");
+  }, 2000);
+};
+
+let secondFunction = () => {
+  console.log("This is second");
+};
+
+firstFuncion();
+secondFunction();
+*/
+
+//? callback hell
+/*
+async1(function () {
+  async2(function () {
+    async3(function () {
+      async4(function () {});
+    });
+  });
+});
+*/
+//? promise
+/*
+new Promise(function (resolve, reject) {
+  setTimeout(resolve(1), 1000);
+})
+  .then(function (result) {
+    console.log(result);
+    return result * 2;
+  })
+
+  .then(function (result) {
+    console.log(result);
+    return result * 3;
+  })
+
+  .then(function (result) {
+    console.log(result);
+    return result * 4;
+  });
+*/
+
+//?eval
+/*
+console.log(eval("2+3"));
+*/
+/* 
+isNaN("hello");
+console.log(isNaN());
+
+isNaN("100");
+console.log(isNaN());
+
+console.log(typeof NaN);
+*/
