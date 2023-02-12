@@ -344,3 +344,28 @@ console.log(isNaN());
 
 console.log(typeof NaN);
 */
+
+//?setInterval
+/*
+setInterval(() => {
+  console.log("Zareel");
+}, 2000);
+*/
+
+//? event delegation
+/*
+let form = document.querySelector("registration-form");
+
+form.addEventListener(
+  "input",
+  (event) => {
+    console.log(event.target);
+  },
+  false
+);
+*/
+
+//? json stringify
+var user = { name: "Zareel", age: 43 };
+var userString = JSON.stringify(user);
+console.log(userString);

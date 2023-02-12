@@ -724,64 +724,78 @@ setTimeout(function () {
 
 ========================================================================================================
 
-What is the use of setInterval?
+# 48. What is the use of setInterval?
+
 The setInterval() method is used to call a function or evaluates an expression at specified intervals (in milliseconds). For example, let us log a message after 2 seconds using setInterval method,
 
-```
-setInterval(function() { console.log("Heyy Prabir"); }, 2000);
+```javascript
+setInterval(function () {
+  console.log("Heyy Prabir");
+}, 2000);
 ```
 
-Why is JavaScript treated as Single threaded?
+# 49. Why is JavaScript treated as Single threaded?
+
 JavaScript is a single-threaded language. Because the language specification does not allow the programmer to write code so that the interpreter can run parts of it in parallel in multiple threads or processes. Whereas languages like java, go, C++ can make multi-threaded and multi-process programs.
-What is an event delegation?
+
+# 50. What is an event delegation?
+
 Event delegation is a technique for listening to events where you delegate a parent element as the listener for all of the events that happen inside it. For example, if you wanted to detect field changes in inside a specific form, you can use event delegation technique,
 
-```
-var form = document.querySelector('#registration-form');
+```javascript
+var form = document.querySelector("#registration-form");
 
 // Listen for changes to fields inside the form
-form.addEventListener('input', function (event) {
-
-// Log the field that was changed
-console.log(event.target);
-
-}, false);
+form.addEventListener(
+  "input",
+  function (event) {
+    // Log the field that was changed
+    console.log(event.target);
+  },
+  false
+);
 ```
 
-What is the purpose JSON stringify?
+# 51. What is the purpose JSON stringify?
+
 When sending data to a web server, the data has to be in a string format. You can achieve this by converting JSON object into a string using
 
-```stringify() method.
-var userJSON = {'name': 'Prabir', age: 25}
+`stringify() method.`
+
+```javascript
+var userJSON = { name: "Zareel", age: 43 };
 var userString = JSON.stringify(user);
-console.log(userString); //"{"name":"Prabir","age":25}"
+console.log(userString);
 ```
 
-How do you parse JSON string?
+# 52. How do you parse JSON string?
+
 When receiving the data from a web server, the data is always in a string format. But you can convert this string value to javascript object using parse() method.
 
-```
+```javascript
 var userString = '{"name":"Prabir","age":25}';
 var userJSON = JSON.parse(userString);
-console.log(userJSON);// {name: "Prabir", age: 25}
+console.log(userJSON); // {name: "Prabir", age: 25}
 ```
 
-What is the purpose of clearTimeout method?
+# 53. What is the purpose of clearTimeout method?
+
 The clearTimeout() function is used in javascript to clear the timeout which has been set by setTimeout() function before that. i.e, The return value of setTimeout() function is stored in a variable and it’s passed into the clearTimeout() function to clear the timer. For example, the below setTimeout method is used to display the message after 3 seconds. This timeout can be cleared by clearTimeout() method.
 
-```
+```javascript
 var msg;
 function greeting() {
-  alert('Heyy Prabir');
+  alert("Heyy Prabir");
 }
 function start() {
-  msg =setTimeout(greeting, 4000);
+  msg = setTimeout(greeting, 4000);
 }
 function stop() {
-    clearTimeout(msg);
+  clearTimeout(msg);
 }
 ```
 
+==============================================================================================================================================
 What is the purpose of clearInterval method?
 The clearInterval() function is used in javascript to clear the interval which has been set by setInterval() function. i.e, The return value returned by setInterval() function is stored in a variable and it’s passed into the clearInterval() function to clear the interval. For example, the below setInterval method is used to display the message for every 3 seconds. This interval can be cleared by clearInterval() method.
 var msg;
