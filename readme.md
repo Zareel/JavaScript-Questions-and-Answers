@@ -736,11 +736,13 @@ setInterval(function () {
 
 # 49. Why is JavaScript treated as Single threaded?
 
-JavaScript is a single-threaded language. Because the language specification does not allow the programmer to write code so that the interpreter can run parts of it in parallel in multiple threads or processes. Whereas languages like java, go, C++ can make multi-threaded and multi-process programs.
+- JavaScript is a single-threaded language.
+- Because the language specification does not allow the programmer to write code so that the interpreter can run parts of it or in parallel or in multiple threads processes.
+- Whereas languages like java, go, C++ can make multi-threaded and multi-process programs.
 
 # 50. What is an event delegation?
 
-Event delegation is a technique for listening to events where you delegate a parent element as the listener for all of the events that happen inside it. For example, if you wanted to detect field changes in inside a specific form, you can use event delegation technique,
+- Event delegation is a technique for listening to events, where you delegate a parent element as the listener for all of the events that happen inside it. For example, if you wanted to detect field changes in inside a specific form, you can use event delegation technique,
 
 ```javascript
 var form = document.querySelector("#registration-form");
@@ -780,12 +782,14 @@ console.log(userJSON); // {name: "Prabir", age: 25}
 
 # 53. What is the purpose of clearTimeout method?
 
-The clearTimeout() function is used in javascript to clear the timeout which has been set by setTimeout() function before that. i.e, The return value of setTimeout() function is stored in a variable and it’s passed into the clearTimeout() function to clear the timer. For example, the below setTimeout method is used to display the message after 3 seconds. This timeout can be cleared by clearTimeout() method.
+- The clearTimeout() function is used in javascript to clear the timeout which has been set by setTimeout() function before that.
+- i.e, The return value of setTimeout() function is stored in a variable and it’s passed into the clearTimeout() function to clear the timer. For example, the below setTimeout method is used to display the message after 3 seconds.
+- This timeout can be cleared by clearTimeout() method.
 
 ```javascript
-var msg;
+let msg;
 function greeting() {
-  alert("Heyy Prabir");
+  alert("Heyy Shon");
 }
 function start() {
   msg = setTimeout(greeting, 4000);
@@ -796,94 +800,111 @@ function stop() {
 ```
 
 ==============================================================================================================================================
-What is the purpose of clearInterval method?
-The clearInterval() function is used in javascript to clear the interval which has been set by setInterval() function. i.e, The return value returned by setInterval() function is stored in a variable and it’s passed into the clearInterval() function to clear the interval. For example, the below setInterval method is used to display the message for every 3 seconds. This interval can be cleared by clearInterval() method.
+
+# 54. What is the purpose of clearInterval method?
+
+The clearInterval() function is used in javascript to clear the interval which has been set by setInterval() function.
+
+```javascript
 var msg;
 
-```
 function greeting() {
-  alert('Heyy Prabir');
+  alert("Heyy Prabir");
 }
 function start() {
-  msg =setInterval(greeting, 4000);
+  msg = setInterval(greeting, 4000);
 }
 function stop() {
-    clearInterval(msg);
+  clearInterval(msg);
 }
 ```
 
-How do you redirect new page in javascript?
+i.e, The return value returned by setInterval() function is stored in a variable and it’s passed into the clearInterval() function to clear the interval. For example, the below setInterval method is used to display the message for every 3 seconds. This interval can be cleared by clearInterval() method.
+
+# 55. How do you redirect new page in javascript?
+
 In vanilla javascript, you can redirect to a new page using location property of window object. The syntax would be as follows,
 
-```
+```javascript
 function redirect() {
-  window.location.href = 'newPage.html';
+  window.location.href = "newPage.html";
 }
 ```
 
-How do you check whether a string contains a substring?
+# 56. How do you check whether a string contains a substring?
+
 There are 3 possible ways to check whether a string contains a substring or not,
+
 a.) Using includes: ES6 provided String.prototype.includes method to test a string contains a substring.
 
-```
-var mainString = "prabir", subString = "prab";
-mainString.includes(subString)
+```javascript
+let mainString = "zareel",
+  subString = "zar";
+mainString.includes(subString);
 ```
 
 b.) Using indexOf: In an ES5 or older environments, you can use String.prototype.indexOf which returns the index of a substring. If the index value is not equal to -1 then it means the substring exist in the main string.
 
-```
-var mainString = "prabir", subString = "prab";
-mainString.indexOf(subString) !== -1
+```javascript
+let mainString = "Zareel",
+  subString = "Zar";
+mainString.indexOf(subString) !== -1;
 ```
 
 c.) Using RegEx: The advanced solution is using Regular expression test method(RegExp.test), which allows for testing for against regular expressions
 
-```
-var mainString = "prabir", regex = "/prab/";
-regex.test(mainString)
+```javascript
+let mainString = "Zareel",
+  regex = "/Zar/";
+regex.test(mainString);
 ```
 
-What are break and continue statements?
+# 57. What are break and continue statements?
+
 The break statement is used to "jumps out" of a loop. i.e, It breaks the loop and continues executing the code after the loop.
 
-```
+```javascript
 for (i = 0; i < 10; i++) {
-  if (i === 5) { break; }
+  if (i === 5) {
+    break;
+  }
   text += "Number: " + i + "<br>";
 }
 ```
 
 The continue statement is used to "jumps over" one iteration in the loop. i.e, It breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.
 
-```
-
+```javascript
 for (i = 0; i < 10; i++) {
-    if (i === 5) { continue; }
-    text += "Number: " + i + "<br>";
+  if (i === 5) {
+    continue;
+  }
+  text += "Number: " + i + "<br>";
 }
 ```
 
-How do you define JSON arrays?
+# 58. How do you define JSON arrays?
+
 JSON arrays are written inside square brackets and array contain javascript objects. For example, the JSON array of users would be as below,
 
-```
+```javascript
 "users":[
-  {"firstName":"Prabir", "lastName":"Kumar"},
-  {"firstName":"Anurag", "lastName":"Tiwari"},
-  {"firstName":"Prithvi", "lastName":"Raj"}
+  {"firstName":"Shon", "lastName":"Leo"},
+  {"firstName":"Shine", "lastName":"Leo"},
+  {"firstName":"Zareel", "lastName":"Kalam"}
 ]
 ```
 
-How do you generate random integers?
+# 59. How do you generate random integers?
+
 You can use Math.random() with Math.floor() to return random integers. For example, if you want generate random integers between 1 to 10, the multiplication factor should be 10,
 
+```javascript
+Math.floor(Math.random() * 10) + 1; // returns a random integer from 1 to 10
+Math.floor(Math.random() * 100) + 1; // returns a random integer from 1 to 100
 ```
-Math.floor(Math.random() * 10) + 1;     // returns a random integer from 1 to 10
-Math.floor(Math.random() * 100) + 1;     // returns a random integer from 1 to 100
 
-```
-
+=======================================================================================================================================================
 How do you change style of a HTML element in javascript?
 You can change inline style or classname of a HTML element using javascript
 Using style property: You can modify inline style using style property

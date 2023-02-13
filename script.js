@@ -366,6 +366,147 @@ form.addEventListener(
 */
 
 //? json stringify
+/*
 var user = { name: "Zareel", age: 43 };
 var userString = JSON.stringify(user);
 console.log(userString);
+*/
+
+//?setInterval
+/*
+setInterval(() => {
+  console.log("hey shon");
+}, 2000);
+*/
+
+//? delegation technique
+/*
+let form = document.querySelector("#registration-form");
+
+form.addEventListener("input", (event) => {
+  console.log(event.target)
+}, false)
+
+*/
+
+//? json stringify
+/*
+let userjson = { name: "zareel", age: 43 };
+let userString = JSON.stringify(userjson);
+console.log(userString);
+*/
+/*
+let userString = '{"name":"Prabir","age":25}';
+let userJSON = JSON.parse(userString);
+console.log(userJSON);
+*/
+//? clearTimeout()
+/*
+let msg;
+function greeting() {
+  alert("Hey Shon");
+}
+
+function start() {
+  msg = setTimeout(greeting, 4000);
+}
+
+function stop() {
+  clearTimeout(msg);
+}
+*/
+/* 
+function myFun() {
+  console.log("Hello");
+  return "World";
+  console.log("bye bye");
+}
+myFun();
+*/
+
+//? clearInterval()
+/*
+var msg;
+
+function greeting(){
+  alert("HeyShon")
+}
+
+function start(){
+  msg = setInterval(greeting, 4000)
+}
+
+function stop(){
+  clearInterval(msg)
+}
+*/
+
+//? redirect
+/*
+function redirect(){
+  window.location.href="newpage.html"
+}
+*/
+
+//? how to check if a string contains a substring
+
+//? includes() method
+/*
+let mainstring = "Zareel";
+let substring = mainstring.includes("Zar");
+console.log(substring);
+*/
+/*
+let mainString = "Zareel";
+let subString = "Zar";
+console.log(mainString.includes(subString));
+*/
+
+//? indexOf
+/*
+let mainString = "Zareel";
+let subString = "Zar";
+console.log(mainString.indexOf(subString) !== -1);
+*/
+
+//? regex
+//! not working
+/*
+let mainString = "Zareel";
+RegExp = "/Zar/";
+console.log(RegExp.test.mainString);
+*/
+
+//? break
+/*
+for (i = 1; i < 10; i++) {
+  if (i === 5) {
+    break;
+  }
+  console.log(i);
+}
+*/
+
+//? continue
+/*
+for (i = 1; i <= 10; i++) {
+  if (i === 5) {
+    continue;
+  }
+  console.log(i);
+}
+*/
+
+//? json array
+/*
+let jsonArray = [{ firstName: "Shon" }, { lastName: "Leo" }, { age: 15 }];
+*/
+
+//? how will you generate random numbers between 1 to 10
+/*
+let random  = Math.floor(Math.random() * 10 + 1);
+console.log(random)
+*/
+
+let randomNumber = Math.floor(Math.random() * 100 + 1);
+console.log(randomNumber);
