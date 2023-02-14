@@ -507,6 +507,32 @@ let jsonArray = [{ firstName: "Shon" }, { lastName: "Leo" }, { age: 15 }];
 let random  = Math.floor(Math.random() * 10 + 1);
 console.log(random)
 */
-
+/*
 let randomNumber = Math.floor(Math.random() * 100 + 1);
 console.log(randomNumber);
+*/
+
+//?Changing style of an html element using javascript
+// using style property
+/*
+document.getElementById("title").style.fontSize = "50px"
+*/
+//using className property
+/*
+document.getElementById("title").style.className = "custom title"
+*/
+//? debugger statement
+/*
+function getProfile(){
+  // code goes here
+  debugger;
+  //code goes here
+}*/
+
+//? ternary operators
+
+let isAuthenticated = true;
+
+console.log(
+  isAuthenticated ? "Hello, welcome" : "sorry you are not authenticated"
+);

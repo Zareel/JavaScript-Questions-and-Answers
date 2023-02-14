@@ -905,67 +905,98 @@ Math.floor(Math.random() * 100) + 1; // returns a random integer from 1 to 100
 ```
 
 =======================================================================================================================================================
-How do you change style of a HTML element in javascript?
-You can change inline style or classname of a HTML element using javascript
-Using style property: You can modify inline style using style property
 
-```
+# 60. How do you change style of an HTML element in javascript?
+
+You can change inline style or classname of an HTML element using javascript
+
+- Using style property:
+
+  You can modify inline style using style property
+
+```javascript
 document.getElementById("title").style.fontSize = "40px";
 ```
 
-Using ClassName property: It is easy to modify element class using className property
+- Using ClassName property:
 
-```
+  It is easy to modify element class using className property
+
+```javascript
 document.getElementById("title").style.className = "custom-title";
 ```
 
-What is a debugger statement?
-The debugger statement invokes any available debugging functionality, such as setting a breakpoint. If no debugging functionality is available, this statement has no effect. For example, in the below function a debugger statement has been inserted. So execution is paused at the debugger statement just like a breakpoint in the script source.
+# 61. What is a debugger statement?
 
-```
+- The debugger statement invokes any available debugging functionality, such as setting a breakpoint.
+- If no debugging functionality is available, this statement has no effect.
+- For example, in the below function a debugger statement has been inserted.
+- So execution is paused at the debugger statement just like a breakpoint in the script source.
+
+```javascript
 function getProfile() {
-// code goes here
-debugger;
-// code goes here
+  // code goes here
+  debugger;
+  // code goes here
 }
 ```
 
-What is the purpose of breakpoints in debugging?
-You can set breakpoints in the javascript code once the debugger statement is executed and debugger window pops up. At each breakpoint, javascript will stop executing, and let you examine the JavaScript values. After examining values, you can resume the execution of code using play button.
-Can I use reserved words as identifiers?
+# 62. What is the purpose of breakpoints in debugging?
+
+- You can set breakpoints in the javascript code once the debugger statement is executed and debugger window pops up.
+- At each breakpoint, javascript will stop executing, and let you examine the JavaScript values.
+- After examining values, you can resume the execution of code using play button.
+
+# 63. Can I use reserved words as identifiers?
+
 No, you cannot use the reserved words as variables, labels, object or function names.
 
-```
+```javascript
 var else = "hello"; // Uncaught SyntaxError: Unexpected token else
 ```
 
-What is a conditional operator in javascript?
-The conditional (ternary) operator is the only JavaScript operator that takes three operands which acts as a shortcut for if statement.
-var isAuthenticated = false;
-console.log(isAuthenticated ? 'Hello, welcome' : 'Sorry, you are not authenticated');
+# 64. What is a conditional operator in javascript?
 
-Can you apply chaining on conditional operator?
+The conditional (ternary) operator is the only JavaScript operator that takes three operands which acts as a shortcut for if statement.
+
+```javascript
+var isAuthenticated = false;
+console.log(
+  isAuthenticated ? "Hello, welcome" : "Sorry, you are not authenticated"
+);
+```
+
+# 65. Can you apply chaining on conditional operator?
+
 Yes, you can apply chaining on conditional operator similar to if … else if … else if … else chain. The syntax is going to be as below,
 
-```
+```javascript
 function traceValue(someParam) {
-    return condition1 ? value1
-        : condition2 ? value2
-        : condition3 ? value3
-        : value4;
+  return condition1
+    ? value1
+    : condition2
+    ? value2
+    : condition3
+    ? value3
+    : value4;
 }
-
 
 // The above conditional operator is equivalent to:
 
 function traceValue(someParam) {
-    if (condition1) { return value1; }
-    else if (condition2) { return value2; }
-    else if (condition3) { return value3; }
-    else { return value4; }
+  if (condition1) {
+    return value1;
+  } else if (condition2) {
+    return value2;
+  } else if (condition3) {
+    return value3;
+  } else {
+    return value4;
+  }
 }
 ```
 
+================================================================================================================
 What is the difference between proto and prototype?
 The **proto** object is the actual object that is used in the lookup chain to resolve methods, etc. Whereas prototype is the object that is used to build **proto** when you create an object with new
 
