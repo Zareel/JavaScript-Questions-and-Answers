@@ -997,57 +997,68 @@ function traceValue(someParam) {
 ```
 
 ================================================================================================================
-What is the difference between proto and prototype?
-The **proto** object is the actual object that is used in the lookup chain to resolve methods, etc. Whereas prototype is the object that is used to build **proto** when you create an object with new
+
+# 66. What is the difference between proto and prototype?
+
+- The **proto** object is the actual object that is used in the lookup chain to resolve methods, etc.
+- Whereas prototype is the object that is used to build **proto** when you create an object with new
 
 ```
 ( new Employee ).__proto__ === Employee.prototype;
 ( new Employee ).prototype === undefined;
 ```
 
-How can you get the list of keys of any object?
-You can use Object.keys() method which is used return an array of a given object's own property names, in the same order as we get with a normal loop. For example, you can get the keys of a user object,
+# 67. How can you get the list of keys of any object?
 
-```
+- You can use Object.keys() method which is used return an array of a given object's own property names, in the same order as we get with a normal loop.
+- For example, you can get the keys of a user object,
+
+```javascript
 const user = {
-  name: 'Prabir',
-  gender: 'male',
-  age: 40
+  name: "Prabir",
+  gender: "male",
+  age: 40,
 };
 
 console.log(Object.keys(user)); //['name', 'gender', 'age']
 ```
 
-How do you create an object with prototype?
-The Object.create() method is used to create a new object with the specified prototype object and properties. i.e, It uses existing object as the prototype of the newly created object. It returns a new object with the specified prototype object and properties.
+# 68. How do you create an object with prototype?
+
+- The Object.create() method is used to create a new object with the specified prototype object and properties.
+- i.e, It uses existing object as the prototype of the newly created object. It returns a new object with the specified prototype object and properties.
+
+```javascript
 const user = {
-name: 'Prabir',
-printInfo: function () {
-console.log(`My name is ${this.name}.`);
-}
+  name: "Zareel",
+  printInfo: function () {
+    console.log(`My name is ${this.name}.`);
+  },
 };
 
 const admin = Object.create(person);
 
-```
-admin.name = "Kumar"; // Remember that "name" is a property set on "admin" but not on "user" object
+admin.name = "Kalam"; // Remember that "name" is a property set on "admin" but not on "user" object
 admin.printInfo(); // My name is Kumar
 ```
 
-What is the difference between uneval and eval?
+# 69. What is the difference between uneval and eval?
+
 The uneval() function returns the source of a given object; whereas the eval function does the opposite, by evaluating that source code in a different memory area.
 
-```
-var msg = uneval(function greeting() { return 'Hello, Prabir Kumar'; });
+```javascript
+var msg = uneval(function greeting() {
+  return "Hello, Prabir Kumar";
+});
 var greeting = eval(msg);
 greeting(); // returns "Hello, Prabir Kumar"
-
 ```
 
-What is an anonymous function?
+# 70. What is an anonymous function?
+
 An anonymous function is a function without a name! Anonymous functions are commonly assigned to a variable name or used as a callback function. The syntax would be as below,
 
-```
+```javascript
 function (optionalParameters) {
   //do something
 }
@@ -1066,6 +1077,7 @@ var z = x(2, 10);
 console.log(z); // 20
 ```
 
+==========================================================================================================================================================================
 What is the precedence order between local and global variables?
 A local variable takes precedence over a global variable with the same name.
 
