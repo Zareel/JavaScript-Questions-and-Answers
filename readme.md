@@ -1001,7 +1001,7 @@ function traceValue(someParam) {
 # 66. What is the difference between proto and prototype?
 
 - The **proto** object is the actual object that is used in the lookup chain to resolve methods, etc.
-- Whereas prototype is the object that is used to build **proto** when you create an object with new
+- Whereas **prototype** is the object that is used to build **proto** when you create an object with **new**
 
 ```
 ( new Employee ).__proto__ === Employee.prototype;
@@ -1026,7 +1026,6 @@ console.log(Object.keys(user)); //['name', 'gender', 'age']
 # 68. How do you create an object with prototype?
 
 - The Object.create() method is used to create a new object with the specified prototype object and properties.
-- i.e, It uses existing object as the prototype of the newly created object. It returns a new object with the specified prototype object and properties.
 
 ```javascript
 const user = {
@@ -1044,13 +1043,14 @@ admin.printInfo(); // My name is Kumar
 
 # 69. What is the difference between uneval and eval?
 
-The uneval() function returns the source of a given object; whereas the eval function does the opposite, by evaluating that source code in a different memory area.
+- The uneval() function returns the source of a given object;
+- whereas the eval function evaluate that source code in a different memory area.
 
 ```javascript
-var msg = uneval(function greeting() {
-  return "Hello, Prabir Kumar";
+let msg = uneval(function greeting() {
+  return "Hello, Zareel Kalam";
 });
-var greeting = eval(msg);
+let greeting = eval(msg);
 greeting(); // returns "Hello, Prabir Kumar"
 ```
 
@@ -1072,17 +1072,19 @@ const myFunction = function(){ //Anonymous function assigned to a variable
 });
 Example:
 
-var x = function (a, b) {return a * b};
-var z = x(2, 10);
+let x = function (a, b) {return a * b};
+let z = x(2, 10);
 console.log(z); // 20
 ```
 
 ==========================================================================================================================================================================
-What is the precedence order between local and global variables?
+
+# 71. What is the precedence order between local and global variables?
+
 A local variable takes precedence over a global variable with the same name.
 
-```
-var msg = "Good morning";
+```javascript
+let msg = "Good morning";
 function greeting() {
   msg = "Good Evening";
   console.log(msg);
@@ -1090,13 +1092,14 @@ function greeting() {
 greeting();
 ```
 
-What are javascript accessors?
+# 72. What are javascript accessors?
+
 ECMAScript 5 introduced javascript object accessors or computed properties through getters and setters. Getters uses get keyword whereas Setters uses set keyword.
 
-```
-var user = {
-  firstName: "Prabir",
-  lastName : "Kumar",
+```javascript
+let user = {
+  firstName: "Zareel",
+  lastName : "Kalam",
   language : "en",
   get lang() {
     return this.language;
@@ -1110,22 +1113,31 @@ user.lang = 'fr';
 console.log(user.lang); // setter used to set lang as fr
 ```
 
-What are the various statements in error handling?
+# 73. What are the various statements in error handling?
+
 Below are the list of statements used in an error handling,
-try: This statement is used to test a block of code for errors
-catch: This statement is used to handle the error
-throw: This statement is used to create custom errors.
-finally: This statement is used to execute code after try and catch regardless of the result.
 
-Explain event delegation?
-Event delegation is a technique involving adding event listeners to a parent element instead of adding them to the descendant elements. The listener will fire whenever the event is triggered on the descendant elements due to event bubbling up the DOM. The benefits of this technique are:
-Memory footprint goes down because only one single handler is needed on the parent element, rather than having to attach event handlers on each descendant.
-There is no need to unbind the handler from elements that are removed and to bind the event for new elements.
+- try: This statement is used to test a block of code for errors
+- catch: This statement is used to handle the error
+- throw: This statement is used to create custom errors.
+- finally: This statement is used to execute code after try and catch regardless of the result.
 
-What is the difference between .call and .apply?
-Both .call and .apply are used to invoke functions and the first parameter will be used as the value of this within the function. However, .call takes in comma-separated arguments as the next arguments while .apply takes in an array of arguments as the next argument. An easy way to remember this is C for call and comma-separated and A for apply and an array of arguments.
+# 74. Explain event delegation?
 
-```
+- Event delegation is a technique of adding event listeners to a parent element instead of adding them to the descendant elements.
+- The listener will fire whenever the event is triggered on the descendant elements due to event bubbling up the DOM.
+- The benefits of this technique are:
+- Memory footprint goes down because only one single handler is needed on the parent element, rather than having to attach event handlers on each descendant.
+- There is no need to unbind the handler from elements that are removed and to bind the event for new elements.
+
+# 75. What is the difference between .call and .apply?
+
+- Both .call and .apply are used to invoke functions
+- the first parameter will be used as the value of this within the function.
+- However, .call takes in comma-separated arguments as the next arguments while .apply takes in an array of arguments as the next argument.
+- An easy way to remember this is C for call and comma-separated and A for apply and an array of arguments.
+
+```javascript
 function add(a, b) {
   return a + b;
 }
@@ -1134,6 +1146,7 @@ console.log(add.call(null, 3, 2)); // 5
 console.log(add.apply(null, [3, 2])); // 5
 ```
 
+===========================================================================================================================================================
 Explain Function.prototype.bind?
 The bind() method creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
 In my experience, it is most useful for binding the value of this in methods of classes that you want to pass into other functions. This is frequently done in React components.

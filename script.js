@@ -530,9 +530,106 @@ function getProfile(){
 }*/
 
 //? ternary operators
-
+/*
 let isAuthenticated = true;
 
 console.log(
   isAuthenticated ? "Hello, welcome" : "sorry you are not authenticated"
 );
+*/
+
+//? to get the keys of objects
+/*
+let user = {
+  name: "Zareel",
+  gender: "female",
+  age: 43,
+};
+console.log(Object.keys(user));
+*/
+
+//? to get the values
+/*
+let user = {
+  name: "Zareel",
+  gender: "female",
+  age: 43,
+};
+console.log(Object.values(user));
+*/
+//?What is object in javascript
+
+//*Anything inside the curly baces is known as an object
+//* Objects are in key- value pairs
+
+//? create an object with prototype
+//!not working
+/*
+let user = {
+  name: "Zareel",
+  printInfo: function () {
+    console.log(`My name is ${this.name}`);
+  },
+};
+let admin = Object.create(Person);
+*/
+
+//? anonimous function
+/*
+function(optionaParameter){
+  //do something
+}
+let myFunction = function(){
+  //do something
+}
+*/
+/*
+[1, 2, 3].map(function (element) {
+  // do something
+});
+*/
+/*
+let x = function (a, b) {
+  return a * b;
+};
+let z = x(2, 10);
+console.log(z);
+*/
+
+//? precedence order
+/*
+let msg = "Good Morning";
+
+function greeting() {
+  msg = "Good Evening";
+  console.log(msg);
+}
+greeting();
+*/
+
+//? javascript accessors, getters and setters
+/*
+let user = {
+  firstName: "Zareel",
+  lastName: "Kalam",
+  language: "en",
+  get lang() {
+    return this.language;
+  },
+  set lang(lang) {
+    this.language = lang;
+  },
+};
+console.log(user.lang); // getter access lang as en
+user.lang = "fr";
+console.log(user.lang); // setter used to set lang as fr
+*/
+
+//?.call and .apply
+/*
+function add(a, b) {
+  return a + b;
+}
+console.log(add.call(null, 1, 2));
+console.log(add.apply(null, [5, 8]));
+*/
