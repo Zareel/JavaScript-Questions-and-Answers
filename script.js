@@ -633,3 +633,57 @@ function add(a, b) {
 console.log(add.call(null, 1, 2));
 console.log(add.apply(null, [5, 8]));
 */
+/*
+let arr = [1, 2, 3];
+
+let total = 0;
+
+for (let i = 0; i < arr.length; i++) {
+  total += arr[i];
+}
+console.log(total);
+*/
+/*
+function multiplyAll(arr) {
+  var product = 1;
+  // Only change code below this line
+
+  for (var i = 0; i < arr.length; i++) {
+    for (var x = 0; x < arr[i].length; x++) {
+      product *= arr[i][x];
+    }
+  }
+
+  // Only change code above this line
+  return product;
+}
+
+// Modify values below to test your code
+multiplyAll([
+  [1, 2],
+  [3, 4],
+  [5, 6, 7],
+]);
+*/
+
+//? undefined
+/*
+let x;
+console.log(x);
+console.log(x === undefined);
+*/
+/*
+let x = 11;
+console.log(x);
+console.log(x === undefined);
+*/
+
+let outerFunction = () => {
+  let firstName = "Zareel";
+  let innerFunction = () => {
+    console.log(firstName);
+  };
+  return innerFunction;
+};
+let result = outerFunction();
+result();
