@@ -1229,30 +1229,37 @@ In this example, the inner function innerFunction is a closure. It has access to
 A closure is created when an inner function is defined inside an outer function, and the inner function references variables defined in the outer function. The inner function is returned from the outer function, and when it's invoked it has access to the scope of the outer function.
 
 ===================================================================================================================================
-What is the difference between typeof and instanceof?
-typeof is an operator that returns a string with the type of whatever you pass.
+
+# 81. What is the difference between typeof and instanceof?
+
+`typeof` is an operator that returns a string with the type of whatever you pass.
 The typeof operator checks if a value belongs to one of the seven basic types: number, string, boolean, object, function, undefined or Symbol.
 
 typeof(null) will return object.
 
-instanceof is much more intelligent: it works on the level of prototypes. In particular, it tests to see if the right operand appears anywhere in the prototype chain of the left. instanceof doesn’t work with primitive types. It instanceof operator checks the current object and returns true if the object is of the specified type, for example:
+`instanceof` is much more intelligent: it works on the level of prototypes. `instanceof` doesn’t work with primitive types. The `instanceof` operator checks the current object and returns true if the object is of the specified type, for example:
 
-```
+```javascript
 var dog = new Animal();
 dog instanceof Animal; // Output : true
 ```
 
 Here dog instanceof Animal is true since dog inherits from Animal.prototype
 
-```
+```javascript
 var name = new String("xyz");
 name instanceof String; // Output : true
 ```
 
-What is the difference between a method and a function in javascript?
-In JS, that difference is quite subtle. A function is a piece of code that is called by name and function itself not associated with any object and not defined inside any object. It can be passed data to operate on (i.e. parameter) and can optionally return data (the return value).
+# 82. What is the difference between a method and a function in javascript?
 
-```
+- In JS, difference between a method and a function is quite subtle.
+- A function is a piece of code that is called by name and
+- function itself not associated with any object and
+- not defined inside any object.
+- It can be passed data to operate on (i.e. parameter) and can optionally return data (the return value).
+
+```javascript
 // Function statement
 function myFunc() {
   // Do some stuff;
@@ -1275,35 +1282,49 @@ const myFunc = arg => {
 }
 ```
 
-A method is a piece of code that is called by its name and that is associated with the object. Methods are functions. When you call a method like this obj1.myMethod(), the reference to obj1 gets assigned (bound) to this variable. In other words, the value of this will be obj1 inside myMethod.
+- A method is a piece of code that is called by its name and
+- that is associated with the object.
+- Methods are functions.
+- When you call a method like this obj1.myMethod(), the reference to obj1 gets assigned (bound) to this variable.
+- In other words, the value of this will be obj1 inside myMethod.
 
-What are promises and how they are useful?
-We use promises for handling asynchronous interactions in a sequential manner. They are especially useful when we need to do an async operation and THEN do another async operation based on the results of the first one. For example, if you want to request the list of all flights and then for each flight you want to request some details about it. The promise represents the future value. It has an internal state (pending, fulfilled and rejected) and works like a state machine.
-A promise object has then method, where you can specify what to do when the promise is fulfilled or rejected.
+# 83. What are promises and how they are useful?
+
+- We use promises for handling asynchronous interactions in a sequential manner.
+- They are especially useful when we need to do an async operation and THEN do another async operation based on the results of the first one.
+  -For example, if you want to request the list of all flights and then for each flight you want to request some details about it.
+- The promise represents the future value. It has an internal state (pending, fulfilled and rejected) and works like a state machine.
+  A promise object has then method, where you can specify what to do when the promise is fulfilled or rejected.
 
 You can chain then() blocks, thus avoiding the callback hell. You can handle errors in the catch() block. After a promise is set to fulfilled or rejected state, it becomes immutable.
 
-What is this keyword in javascript?
-The following rules are applied when we use this keyword in javascript
-If the new keyword is used when calling the function, this inside the function is a brand new object.
-If apply, call, or bind are used to call/create a function, this inside the function is the object that is passed in as the argument.
-If a function is called as a method, such as obj.method() — this is the object that the function is a property of.
-If a function is invoked as a free function invocation, meaning it was invoked without any of the conditions present above, this is the global object. In a browser, it is the window object. If in strict mode ('use strict'), this will be undefined instead of the global object.
-If multiple of the above rules apply, the rule that is higher wins and will set the this value.
-If the function is an ES2015 arrow function, it ignores all the rules above and receives the this value of its surrounding scope at the time it is created.
+# 84 What is `this` keyword in javascript?
 
-What is the purpose of array slice method?
-The slice() method returns the selected elements in an array as a new array object. It selects the elements starting at the given start argument, and ends at the given optional end argument without including the last element. If you omit the second argument then it selects till the end. Some of the examples of this method are,
+The following rules are applied when we use `this` keyword in javascript
 
-```
+- If the `new` keyword is used when calling the function, `this` inside the function is a brand new object.
+- If `apply`, `call`, or `bind` are used to call/create a function, `this` inside the function is the object that is passed in as the argument.
+- If a function is called as a method, such as obj.method() — `this` is the object that the function is a property of.
+- If a function is invoked as a free function invocation, meaning it was invoked without any of the conditions present above, `this` is the global object.
+- In a browser, it is the window object.
+- If in strict mode ('use strict'), `this` will be undefined instead of the global object.
+- If multiple of the above rules apply, the rule that is higher wins and will set the `this` value.
+- If the function is an ES-2015 arrow function, it ignores all the rules above and receives the `this` value of its surrounding scope at the time it is created.
+
+# 85 What is the purpose of array slice method?
+
+The slice() method returns the selected elements in an array as a new array object. It selects the elements starting at the given start argument, and ends at the given optional end argument without excluding the last element. If you omit the second argument then it selects till the end. Some of the examples of this method are,
+
+```javascript
 let arrayIntegers = [1, 2, 3, 4, 5];
-let arrayIntegers1 = arrayIntegers.slice(0,2); // returns [1,2]
-let arrayIntegers2 = arrayIntegers.slice(2,3); // returns [3]
+let arrayIntegers1 = arrayIntegers.slice(0, 2); // returns [1,2]
+let arrayIntegers2 = arrayIntegers.slice(2, 3); // returns [3]
 let arrayIntegers3 = arrayIntegers.slice(4); //returns [5]
 ```
 
-Note: Slice method wonot mutate the original array but it returns the subset as new array.
+# Note: Slice method wonot mutate the original array but it returns the subset as new array.
 
+=============================================================================================================
 What is shallow copy and deep copy in javascript?
 Shallow copy:
 

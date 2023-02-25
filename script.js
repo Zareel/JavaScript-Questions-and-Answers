@@ -677,7 +677,7 @@ let x = 11;
 console.log(x);
 console.log(x === undefined);
 */
-
+/*
 let outerFunction = () => {
   let firstName = "Zareel";
   let innerFunction = () => {
@@ -687,3 +687,24 @@ let outerFunction = () => {
 };
 let result = outerFunction();
 result();
+*/
+
+//? typeof
+/*
+let fname = "Zareel";
+console.log(typeof fname);
+
+let number = 100;
+console.log(typeof number);
+*/
+
+//? instanceof
+/*
+var dog = new Animal();
+dog instanceof Animal;
+*/
+
+//? slice()
+
+let numbers = [1, 2, 3, 4, 5, 6];
+console.log(numbers.slice(2));
