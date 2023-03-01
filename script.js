@@ -705,6 +705,14 @@ dog instanceof Animal;
 */
 
 //? slice()
-
+/*
 let numbers = [1, 2, 3, 4, 5, 6];
 console.log(numbers.slice(2));
+*/
+
+let setState = () => {
+  let Score = 22;
+  return Score;
+};
+let myScore = setState();
+console.log(myScore);

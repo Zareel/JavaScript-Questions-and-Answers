@@ -1,11 +1,11 @@
 # 1. List some features of JavaScript.
 
-- Lightweight
-- Interpreted programming language
+- Lightweight :- small memory footprint, simple syntax and semantics, easy to implement
+- Interpreted programming language:- use software called interpreters to convert highlever source code in to machine language
 - Complementary to Java
 - Complementary to HTML
-- Open source
-- Cross-platform
+- Open source:- original source code is made freely available
+- Cross-platform:- can work acrosss multiple type of operating environment
 
 # 2. Who developed JavaScript, and what was the first name of JavaScript?
 
@@ -31,7 +31,7 @@ JavaScript was developed by Brendan Eich in 1995. The first name of JavaScript w
 
 # 5. What is ECMAScript ?
 
-ECMAScript is the JavaScript standard intended to ensure the interoperability of web pages across different browsers. Inshort it is a language specification.
+ECMAScript is the JavaScript standard intended to ensure the interoperability(exchange information) of webpages across different browsers. Inshort it is a language specification.
 
 ===========================================
 
@@ -1325,18 +1325,16 @@ let arrayIntegers3 = arrayIntegers.slice(4); //returns [5]
 # Note: Slice method wonot mutate the original array but it returns the subset as new array.
 
 =============================================================================================================
-What is shallow copy and deep copy in javascript?
-Shallow copy:
 
-Shallow copy is a bit-wise copy of an object. A new object is created that has an exact copy of the values in the original object. If any of the fields of the object are references to other objects, just the reference addresses are copied i.e., only the memory address is copied.
+# 86. What is shallow copy and deep copy in javascript?
 
-Deep copy:
+`Shallow copy`: Shallow copy is a bit-wise copy of an object. A new object is created that has an exact copy of the values in the original object. If any of the fields of the object are references to other objects, just the reference addresses are copied i.e., only the memory address is copied.
 
-A deep copy copies all fields, and makes copies of dynamically allocated memory pointed to by the fields. A deep copy occurs when an object is copied along with the objects to which it refers.
+`Deep copy`: A deep copy copies all fields, and makes copies of dynamically allocated memory pointed to by the fields. A deep copy occurs when an object is copied along with the objects to which it refers.
 
 A Shallow copy of the object can be done using object.assign() method in javascript.
 
-```
+```javascript
 
 let obj = {
   a: 1,
@@ -1359,23 +1357,9 @@ console.log(newObj); // { a: 1, b: { c: 2 } } (New Object Intact!)
 
 ```
 
-How to avoid callback hell in javascript?
-Callback hell is a phenomenon that afflicts a JavaScript developer when he tries to execute multiple asynchronous operations one after the other. Some people call it to be the pyramid of doom.
-Example:
+# 87. How to avoid callback hell in javascript?
 
-```
-
-doSomething(param1, param2, function(err, paramx){
-    doMore(paramx, function(err, result){
-        insertRow(result, function(err){
-            yetAnotherOperation(someparameter, function(s){
-                somethingElse(function(x){
-                });
-            });
-        });
-    });
-});
-```
+Callback hell is the using of callback back to back making the code difficult to read.
 
 Techniques for avoiding callback hell
 
@@ -1385,10 +1369,13 @@ Using Async.js
 Using Promises
 Using Async-Await
 
-How do you detect primitive or non primitive value type?
-In JavaScript, primitive types include boolean, string, number, BigInt, null, Symbol and undefined. Whereas non-primitive types include the Objects. But you can easily identify them with the below function,
+# 88. How do you detect primitive or non primitive value type?
 
-```
+In JavaScript,
+`primitive types` include boolean, string, number, BigInt, null, Symbol and undefined. Whereas
+`non-primitive types` include the Objects and arrays. But you can easily identify them with the below function,
+
+```javascript
 var myPrimitive = 30;
 var myNonPrimitive = {};
 function isPrimitive(val) {
@@ -1401,19 +1388,21 @@ isPrimitive(myNonPrimitive);
 
 If the value is a primitive data type, the Object constructor creates a new wrapper object for the value. But If the value is a non-primitive data type (an object), the Object constructor will give the same object.
 
-What is babel
+# 89. What is babel
+
 Babel is a JavaScript transpiler to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript in current and older browsers or environments. Some of the main features are listed below,
 Transform syntax
 Polyfill features that are missing in your target environment (using @babel/polyfill)
 Source code transformations (or codemods)
 
-What are the different ways to deal with Asynchronous Code
+# 90. What are the different ways to deal with Asynchronous Code
+
 Below are the list of different ways to deal with Asynchronous code.
 Callbacks
 Promises
 Async/await
 Third-party libraries such as async.js,bluebird etc
-
+==============================================================================================================================
 What is a thunk function
 A thunk is just a function which delays the evaluation of the value. It doesn’t take any arguments but gives the value whenever you invoke the thunk. i.e, It is used not to execute now but it will be sometime in the future. Let's take a synchronous example,
 
