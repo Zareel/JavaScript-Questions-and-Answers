@@ -42,6 +42,9 @@ console.log(typeof num);
 
 let cat;
 console.log(typeof cat);
+
+let num = NaN;
+console.log(typeof num);
 */
 
 //? comparison operaton:- there are strict comparison (===) and abstract comparison (==)
@@ -709,10 +712,27 @@ dog instanceof Animal;
 let numbers = [1, 2, 3, 4, 5, 6];
 console.log(numbers.slice(2));
 */
-
+/*
 let setState = () => {
   let Score = 22;
   return Score;
 };
 let myScore = setState();
 console.log(myScore);
+*/
+
+// todo 12/3/2023 Sunday
+
+//? 1.Thunk function
+/*
+const add = (x, y) => x + y;
+const thunk = add(20, 11);
+console.log(thunk);
+*/
+
+//? 2. Template literals
+let firstName = "zareel";
+let lastName = "Kalam";
+
+let greeting = `Welcome to Javascript world ${firstName} ${lastName}`;
+console.log(greeting);

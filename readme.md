@@ -633,17 +633,17 @@ The eval() function evaluates JavaScript code represented as a string. The strin
 console.log(eval("3 + 2")); //  5
 ```
 
+===============================================================================================================
+
 # 41. What is isNaN?
 
-The isNaN() function is used to determine whether a value is an illegal number (Not-a-Number) or not. i.e, This function returns true if the value equates to NaN. Otherwise it returns false.
+The isNaN() function is used to determine whether a value NaN (Not-a-Number) or not. i.e, This function returns true if the value equates to NaN. Otherwise it returns false.
 
 ```javascript
-isNaN("Hello"); //true
-isNaN("100"); //false
-typeof NaN; //Number
+console.log(isNaN("hi")); // true
+console.log(isNaN("100")); // false
+console.log(typeof NaN); // number
 ```
-
-===========================================================================================================
 
 # 42. What are the pros and cons of promises over callbacks?
 
@@ -704,7 +704,7 @@ console.log(input.value); // Good evening
 # 45. Is JavaScript a case-sensitive language?
 
 - Yes, JavaScript is a case sensitive language.
-- The language keywords, variables, function & object names, and any other identifiers must always be typed with a consistent capitalization of letters.
+- # The language keywords, variables, function & object names, and any other identifiers must always be typed with a consistent capitalization of letters.
 
 # 46. What is BOM?
 
@@ -1403,10 +1403,14 @@ Promises
 Async/await
 Third-party libraries such as async.js,bluebird etc
 ==============================================================================================================================
-What is a thunk function
+
+# 12/3/2023 Sunday
+
+# 1. What is a thunk function
+
 A thunk is just a function which delays the evaluation of the value. It doesn’t take any arguments but gives the value whenever you invoke the thunk. i.e, It is used not to execute now but it will be sometime in the future. Let's take a synchronous example,
 
-```
+```javascript
 const add = (x, y) => x + y;
 
 const thunk = () => add(2, 3);
@@ -1414,10 +1418,11 @@ const thunk = () => add(2, 3);
 thunk(); // 5
 ```
 
-What are asynchronous thunks
+# 2. What are asynchronous thunks
+
 The asynchronous thunks are useful to make network requests. Let's see an example of network requests,
 
-```
+```javascript
 function fetchData(fn) {
   fetch("https://jsonplaceholder.typicode.com/todos/1")
     .then((response) => response.json())
@@ -1435,79 +1440,98 @@ asyncThunk();
 
 The getData function won't be called immediately but it will be invoked only when the data is available from API endpoint. The setTimeout function is also used to make our code asynchronous. The best real time example is redux state management library which uses the asynchronous thunks to delay the actions to dispatch.
 
-Is JavaScript faster than server side script ?
-Yes, JavaScript is faster than server side script. Because JavaScript is a client-side script it does not require any web server’s help for its computation or calculation. So JavaScript is always faster than any server-side script like ASP, PHP, etc.
-What paradigm is Javascript
-JavaScript is a multi-paradigm language, supporting imperative/procedural programming, Object-Oriented Programming and functional programming. JavaScript supports Object-Oriented Programming with prototypical inheritance.
-What are template literals
+# 3. Is JavaScript faster than server side script ?
+
+Yes, JavaScript is faster than server side script. Because JavaScript is a client-side script it does not require any web server’s help for its computation or calculation.
+
+# 4. What paradigm is Javascript
+
+JavaScript is a multi-paradigm language, supporting procedural(top to bottom approach) programming, Object-Oriented Programming and functional programming. JavaScript supports Object-Oriented Programming with prototypical inheritance.
+
+# 5. What are template literals
+
 Template literals or template strings are string literals allowing embedded expressions. These are enclosed by the back-tick (`) character instead of double or single quotes. In E6, this feature enables using dynamic expressions as below,
 
-```
- var greeting = `Welcome to JS World, Mr. ${firstName} ${lastName}.`;
+```javascript
+ let greeting = `Welcome to JS World, Mr. ${firstName} ${lastName}.`;
 
  //In ES5, you need break string like below,
 
- var greeting = 'Welcome to JS World, Mr. ' + firstName + ' ' + lastName.
+ let greeting = 'Welcome to JS World, Mr. ' + firstName + ' ' + lastName.
 ```
 
-Note: You can use multi-line strings and string interpolation features with template literals.
+# Note: You can use multi-line strings and string interpolation features with template literals.
 
-How do you write multi-line strings in template literals
+# 14/3/2023
+
+# 1. How do you write multi-line strings in template literals
+
 In ES5, you would have to use newline escape characters('\n') and concatenation symbols(+) in order to get multi-line strings.
 
-```
+```javascript
 console.log("This is string sentence 1\n" + "This is string sentence 2");
 ```
 
 Whereas in ES6, You don't need to mention any newline sequence character,
 
-```
+```javascript
 console.log(`This is string sentence
 'This is string sentence 2`);
 ```
 
-What is DOM?
-DOM stands for Document Object Model. DOM is a programming interface for HTML and XML documents. When the browser tries to render an HTML document, it creates an object based on the HTML document called DOM. Using this DOM, we can manipulate or change various elements inside the HTML document.
-Example of how HTML code gets converted to DOM:
+# 2. What is DOM?
 
-```
-  <html>
+- DOM stands for Document Object Model.
+- DOM is a programming interface for HTML and XML documents.
+- When the browser tries to render an HTML document, it creates an object based on the HTML document called DOM.
+- Using this DOM, we can manipulate or change various elements inside the HTML document.
+  Example of how HTML code gets converted to DOM:
+
+```javascript
+<html>
   <head>
-  <title>
-    JAVASCRIPT
-    </title>
-    </head>
-    <body>
+    <title>JAVASCRIPT</title>
+  </head>
+  <body>
     <p>I love js</p>
-    </body>
-    </html>
+  </body>
+</html>
 ```
 
-What is the difference between null and undefined
-Null:
-It is an assignment value which indicates that variable points to no object.
-Type of null is object.
-The null value is a primitive value that represents the null, empty, or non-existent reference.
-Indicates the absence of a value for a variable.
-Converted to zero (0) while performing primitive operations.
-Undefined:
-It is not an assignment value where a variable has been declared but has not yet been assigned a value.
-Type of undefined is undefined.
-The undefined value is a primitive value used when a variable has not been assigned a value.
-Indicates absence of variable itself.
-Converted to NaN while performing primitive operations
+# 3. What is the difference between null and undefined
 
-What is the difference between window and document
-Window:
-It is the root level element in any web page.
-By default window object is available implicitly in the page.
-It has methods like alert(), confirm() and properties like document, location. 2. Document:
-It is the direct child of the window object. This is also known as Document Object Model(DOM).
-You can access it via window.document or document.
-It provides methods like getElementById, getElementsByTagName, createElement etc.
+`Null`:
 
-What are modules
+- It is an assignment value which indicates that variable points to no object.
+- Type of null is object.
+- The null value is a primitive value that represents the null, empty, or non-existent reference.
+- Indicates the absence of a value for a variable.
+- Converted to zero (0) while performing primitive operations.
+  `Undefined`:
+- It means a variable has been declared but has not yet been assigned a value.
+- Type of undefined is undefined.
+- The undefined value is a primitive value used when a variable has not been assigned a value.
+- Indicates absence of variable itself.
+- Converted to NaN while performing primitive operations
+
+# 4. What is the difference between window and document
+
+`Window`:
+
+- It is the root level element in any web page.
+- By default window object is available implicitly in the page.
+- It has methods like alert(), confirm() and properties like document, location.
+  `Document`:
+- It is the direct child of the window object. This is also known as Document Object Model(DOM).
+- You can access it via window.document or document.
+- It provides methods like getElementById, getElementsByTagName, createElement etc.
+
+# 5. What are modules
+
 Modules refer to small units of independent, reusable code and also act as the foundation of many JavaScript design patterns. Most of the JavaScript modules export an object literal, a function, or a constructor.
+
+===============================================================================================================================
+
 Why do you need modules
 Below are the list of benefits using modules in javascript ecosystem
 Maintainability
